@@ -155,6 +155,7 @@ pipeline {
 
           if (a == 1) {
             sh ("""echo "${env.KEY}: ${env.VALUE}" >> release.yml""")
+            sh ("cat release.yml")
             def release2 = readYaml (file: 'release.yml')
             println release2
             println "La nueva key es "+ env.KEY + " y su key es " + env.VALUE
