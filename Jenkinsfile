@@ -145,7 +145,7 @@ pipeline {
           release.each{k,v->
             
             if (env.KEY == k) {
-              sh ("`sed -i 's/$k: $v/$env.KEY: $env.VALUE/g' release.yml`")
+              sh ("sed -i 's/$k: $v/$env.KEY: $env.VALUE/g' release.yml")
               def release2 = readYaml (file: 'release.yml')
               println release2
               println "La version de "+ k + " era " + v + " y ahora es: " + env.VALUE
